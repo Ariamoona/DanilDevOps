@@ -36,7 +36,7 @@ public class RemoteConfigLoader : MonoBehaviour
     void Awake()
     {
         localFilePath = Path.Combine(Application.persistentDataPath, "remote_config.cache");
-        Log($"📁 Local cache path: {localFilePath}");
+        Log($" Local cache path: {localFilePath}");
         
         LoadLocalCache();
         
@@ -66,11 +66,11 @@ public class RemoteConfigLoader : MonoBehaviour
         
         if (weaponCache.ContainsKey(weaponId))
         {
-            Log($"✅ Found weapon: {weaponId}");
+            Log($" Found weapon: {weaponId}");
             return weaponCache[weaponId];
         }
         
-        LogWarning($"⚠️ Weapon not found: {weaponId}, using defaults");
+        LogWarning($" Weapon not found: {weaponId}, using defaults");
         return Weapon.GetDefaultWeapon(weaponId);
     }
     
@@ -78,7 +78,7 @@ public class RemoteConfigLoader : MonoBehaviour
     {
         if (targetWeapon == null)
         {
-            LogError("❌ Target weapon is null!");
+            LogError(" Target weapon is null!");
             return false;
         }
         
@@ -87,7 +87,7 @@ public class RemoteConfigLoader : MonoBehaviour
         targetWeapon.damage = config.damage;
         targetWeapon.cooldown = config.cooldown;
         
-        Log($"🔧 Applied config to weapon: {targetWeapon}");
+        Log($" Applied config to weapon: {targetWeapon}");
         onWeaponApplied?.Invoke(targetWeapon);
         
         return true;
@@ -96,7 +96,7 @@ public class RemoteConfigLoader : MonoBehaviour
     public void ApplyWeaponById(string weaponId)
     {
         var weapon = GetWeapon(weaponId);
-        Debug.Log($"🎯 Remote config applied: {weapon}");
+        Debug.Log($" Remote config applied: {weapon}");
     }
     
     public void ReloadConfig()
@@ -104,7 +104,7 @@ public class RemoteConfigLoader : MonoBehaviour
         if (File.Exists(localFilePath))
         {
             File.Delete(localFilePath);
-            Log("🗑️ Local cache cleared");
+            Log(" Local cache cleared");
         }
         
         weaponCache.Clear();
@@ -123,7 +123,7 @@ public class RemoteConfigLoader : MonoBehaviour
     IEnumerator FetchRemoteConfig()
     {
         isLoading = true;
-        Log($"🌐 Fetching remote config from: {configURL}");
+        Log($" Fetching remote config from: {configURL}");
         
         using (UnityWebRequest request = UnityWebRequest.Get(configURL))
         {
@@ -135,7 +135,7 @@ public class RemoteConfigLoader : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string rawData = request.downloadHandler.text;
-                Log($"📦 Received data: {rawData.Length} bytes");
+                Log($" Received data: {rawData.Length} bytes");
                 
                 bool parsed = false;
                 
@@ -181,7 +181,7 @@ public class RemoteConfigLoader : MonoBehaviour
             
             if (lines.Length < 2)
             {
-                LogError("❌ CSV has no data rows");
+                LogError(" CSV has no data rows");
                 return false;
             }
             
@@ -198,7 +198,7 @@ public class RemoteConfigLoader : MonoBehaviour
             
             if (idIndex == -1 || damageIndex == -1 || cooldownIndex == -1)
             {
-                LogError("❌ CSV missing required columns");
+                LogError(" CSV missing required columns");
                 return false;
             }
             
@@ -224,19 +224,19 @@ public class RemoteConfigLoader : MonoBehaviour
                             damage = damage,
                             cooldown = cooldown
                         };
-                        Log($"✅ Parsed: {id}, Dmg: {damage}, Cd: {cooldown}");
+                        Log($" Parsed: {id}, Dmg: {damage}, Cd: {cooldown}");
                     }
                 }
                 catch (Exception e)
                 {
-                    LogWarning($"⚠️ Failed to parse row {i}: {e.Message}");
+                    LogWarning($" Failed to parse row {i}: {e.Message}");
                 }
             }
             
             if (weapons.Count > 0)
             {
                 weaponCache = weapons;
-                Log($"🎯 Loaded {weapons.Count} weapons from CSV");
+                Log($" Loaded {weapons.Count} weapons from CSV");
                 return true;
             }
             
@@ -244,7 +244,7 @@ public class RemoteConfigLoader : MonoBehaviour
         }
         catch (Exception e)
         {
-            LogError($"❌ CSV parsing error: {e.Message}");
+            LogError($" CSV parsing error: {e.Message}");
             return false;
         }
     }
@@ -257,7 +257,7 @@ public class RemoteConfigLoader : MonoBehaviour
             
             if (weaponData?.weapons == null || weaponData.weapons.Length == 0)
             {
-                LogError("❌ JSON has no weapons data");
+                LogError(" JSON has no weapons data");
                 return false;
             }
             
@@ -268,14 +268,14 @@ public class RemoteConfigLoader : MonoBehaviour
                 if (ValidateWeaponData(weapon.id, weapon.damage, weapon.cooldown))
                 {
                     weapons[weapon.id.ToLower()] = weapon;
-                    Log($"✅ Parsed: {weapon.id}, Dmg: {weapon.damage}, Cd: {weapon.cooldown}");
+                    Log($" Parsed: {weapon.id}, Dmg: {weapon.damage}, Cd: {weapon.cooldown}");
                 }
             }
             
             if (weapons.Count > 0)
             {
                 weaponCache = weapons;
-                Log($"🎯 Loaded {weapons.Count} weapons from JSON");
+                Log($" Loaded {weapons.Count} weapons from JSON");
                 return true;
             }
             
@@ -283,7 +283,7 @@ public class RemoteConfigLoader : MonoBehaviour
         }
         catch (Exception e)
         {
-            LogError($"❌ JSON parsing error: {e.Message}");
+            LogError($" JSON parsing error: {e.Message}");
             return false;
         }
     }
@@ -292,19 +292,19 @@ public class RemoteConfigLoader : MonoBehaviour
     {
         if (string.IsNullOrEmpty(id))
         {
-            LogWarning("⚠️ Weapon ID is empty");
+            LogWarning(" Weapon ID is empty");
             return false;
         }
         
         if (damage < 0)
         {
-            LogWarning($"⚠️ Weapon {id} has negative damage: {damage}");
+            LogWarning($" Weapon {id} has negative damage: {damage}");
             return false;
         }
         
         if (cooldown <= 0)
         {
-            LogWarning($"⚠️ Weapon {id} has invalid cooldown: {cooldown}");
+            LogWarning($" Weapon {id} has invalid cooldown: {cooldown}");
             return false;
         }
         
@@ -335,11 +335,11 @@ public class RemoteConfigLoader : MonoBehaviour
             string json = JsonUtility.ToJson(config, true);
             File.WriteAllText(localFilePath, json);
             
-            Log($"💾 Saved {weaponCache.Count} weapons to cache");
+            Log($" Saved {weaponCache.Count} weapons to cache");
         }
         catch (Exception e)
         {
-            LogError($"❌ Failed to save cache: {e.Message}");
+            LogError($" Failed to save cache: {e.Message}");
         }
     }
     
@@ -363,26 +363,26 @@ public class RemoteConfigLoader : MonoBehaviour
                         }
                     }
                     
-                    Log($"📦 Loaded {weaponCache.Count} weapons from cache");
-                    Log($"📅 Cache date: {config.lastUpdated}");
+                    Log($" Loaded {weaponCache.Count} weapons from cache");
+                    Log($" Cache date: {config.lastUpdated}");
                 }
             }
             else
             {
-                Log("📭 No local cache found");
+                Log(" No local cache found");
                 LoadDefaultConfig();
             }
         }
         catch (Exception e)
         {
-            LogError($"❌ Failed to load cache: {e.Message}");
+            LogError($" Failed to load cache: {e.Message}");
             LoadDefaultConfig();
         }
     }
     
     private void LoadDefaultConfig()
     {
-        Log("📋 Loading default configuration");
+        Log(" Loading default configuration");
         
         weaponCache.Clear();
         
@@ -391,7 +391,7 @@ public class RemoteConfigLoader : MonoBehaviour
         weaponCache["shotgun"] = new Weapon { id = "shotgun", damage = 40, cooldown = 1.0f };
         weaponCache["rocket"] = new Weapon { id = "rocket", damage = 100, cooldown = 3.0f };
         
-        Log($"✅ Loaded {weaponCache.Count} default weapons");
+        Log($" Loaded {weaponCache.Count} default weapons");
     }
     
     #endregion
@@ -400,12 +400,12 @@ public class RemoteConfigLoader : MonoBehaviour
     
     private void HandleError(string error)
     {
-        LogError($"❌ {error}");
+        LogError($" {error}");
         onConfigError?.Invoke(error);
         
         if (weaponCache.Count == 0)
         {
-            Log("⚠️ No cache available, loading defaults");
+            Log(" No cache available, loading defaults");
             LoadDefaultConfig();
         }
     }
@@ -448,14 +448,14 @@ public class RemoteConfigLoader : MonoBehaviour
         if (File.Exists(localFilePath))
         {
             File.Delete(localFilePath);
-            Log("🗑️ Cache deleted");
+            Log(" Cache deleted");
         }
     }
     
     [ContextMenu("Print Cache")]
     private void DebugPrintCache()
     {
-        Log($"📊 Current cache: {weaponCache.Count} weapons");
+        Log($" Current cache: {weaponCache.Count} weapons");
         foreach (var weapon in weaponCache.Values)
         {
             Log($"   • {weapon}");
