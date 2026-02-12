@@ -15,7 +15,7 @@ public class RemoteConfigAddressableLoader : MonoBehaviour
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
                 var textAsset = handle.Result;
-                Debug.Log($"📦 Loaded from Addressables: {textAsset.text.Length} chars");
+                Debug.Log($" Loaded from Addressables: {textAsset.text.Length} chars");
                 
                 ProcessConfig(textAsset.text);
                 
@@ -23,7 +23,7 @@ public class RemoteConfigAddressableLoader : MonoBehaviour
             }
             else
             {
-                Debug.LogError("❌ Failed to load config from Addressables");
+                Debug.LogError(" Failed to load config from Addressables");
             }
         };
     }
