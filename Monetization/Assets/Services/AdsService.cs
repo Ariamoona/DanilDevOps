@@ -42,7 +42,7 @@ public class AdsService : MonoBehaviour
 
         if (string.IsNullOrEmpty(gameId) || gameId == "1234567")
         {
-            Debug.LogError("[AdsService] ❌ Введите Game ID в инспекторе!");
+            Debug.LogError("[AdsService]  Введите Game ID в инспекторе!");
             return;
         }
 
@@ -50,7 +50,7 @@ public class AdsService : MonoBehaviour
         {
             Advertisement.Initialize(gameId, testMode);
             isInitialized = true;
-            Debug.Log($"[AdsService] 🚀 Инициализация... GameID: {gameId}, TestMode: {testMode}");
+            Debug.Log($"[AdsService]  Инициализация... GameID: {gameId}, TestMode: {testMode}");
         }
     }
 
@@ -59,7 +59,7 @@ public class AdsService : MonoBehaviour
     {
         if (!Advertisement.isInitialized)
         {
-            Debug.Log("[AdsService] ⏳ SDK не инициализирован");
+            Debug.Log("[AdsService]  SDK не инициализирован");
             return;
         }
 
@@ -68,11 +68,11 @@ public class AdsService : MonoBehaviour
         {
             Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
             Advertisement.Banner.Show("banner");
-            Debug.Log("[AdsService] 📢 Баннер показан");
+            Debug.Log("[AdsService]  Баннер показан");
         }
         else
         {
-            Debug.Log("[AdsService] ⏳ Баннер не готов");
+            Debug.Log("[AdsService]  Баннер не готов");
         }
     }
 
@@ -81,7 +81,7 @@ public class AdsService : MonoBehaviour
         if (Advertisement.Banner != null)
         {
             Advertisement.Banner.Hide();
-            Debug.Log("[AdsService] 🔇 Баннер скрыт");
+            Debug.Log("[AdsService]  Баннер скрыт");
         }
     }
 
@@ -90,7 +90,7 @@ public class AdsService : MonoBehaviour
     {
         if (!Advertisement.isInitialized)
         {
-            Debug.Log("[AdsService] ⏳ SDK не инициализирован");
+            Debug.Log("[AdsService]  SDK не инициализирован");
             return;
         }
 
@@ -99,11 +99,11 @@ public class AdsService : MonoBehaviour
             ShowOptions options = new ShowOptions();
             options.resultCallback = HandleInterstitialResult;
             Advertisement.Show("video", options);
-            Debug.Log("[AdsService] 🎬 Interstitial показан");
+            Debug.Log("[AdsService]  Interstitial показан");
         }
         else
         {
-            Debug.Log("[AdsService] ⏳ Interstitial не готов");
+            Debug.Log("[AdsService]  Interstitial не готов");
         }
     }
 
@@ -112,13 +112,13 @@ public class AdsService : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                Debug.Log("[AdsService] ✅ Interstitial завершен");
+                Debug.Log("[AdsService]  Interstitial завершен");
                 break;
             case ShowResult.Skipped:
-                Debug.Log("[AdsService] ⏩ Interstitial пропущен");
+                Debug.Log("[AdsService]  Interstitial пропущен");
                 break;
             case ShowResult.Failed:
-                Debug.Log("[AdsService] ❌ Interstitial ошибка");
+                Debug.Log("[AdsService]  Interstitial ошибка");
                 break;
         }
     }
@@ -128,7 +128,7 @@ public class AdsService : MonoBehaviour
     {
         if (!Advertisement.isInitialized)
         {
-            Debug.Log("[AdsService] ⏳ SDK не инициализирован");
+            Debug.Log("[AdsService]  SDK не инициализирован");
             return;
         }
 
@@ -137,11 +137,11 @@ public class AdsService : MonoBehaviour
             ShowOptions options = new ShowOptions();
             options.resultCallback = HandleRewardedResult;
             Advertisement.Show("rewardedVideo", options);
-            Debug.Log("[AdsService] ⭐ Rewarded видео показано");
+            Debug.Log("[AdsService]  Rewarded видео показано");
         }
         else
         {
-            Debug.Log("[AdsService] ⏳ Rewarded видео не готово");
+            Debug.Log("[AdsService]  Rewarded видео не готово");
         }
     }
 
@@ -150,48 +150,48 @@ public class AdsService : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                Debug.Log("[AdsService] 🎉 НАГРАДА ВЫДАНА! +100 монет");
+                Debug.Log"[AdsService]  НАГРАДА ВЫДАНА! +100 монет");
                 // Здесь выдаем награду
                 PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 100);
                 break;
             case ShowResult.Skipped:
-                Debug.Log("[AdsService] ⏩ Rewarded пропущено - награда не выдана");
+                Debug.Log("[AdsService]  Rewarded пропущено - награда не выдана");
                 break;
             case ShowResult.Failed:
-                Debug.Log("[AdsService] ❌ Rewarded ошибка показа");
+                Debug.Log("[AdsService]  Rewarded ошибка показа");
                 break;
         }
     }
 
     // ============= ТЕСТОВЫЕ МЕТОДЫ =============
-    [ContextMenu("📢 Показать баннер")]
+    [ContextMenu(" Показать баннер")]
     public void TestShowBanner()
     {
         ShowBanner();
     }
 
-    [ContextMenu("🔇 Скрыть баннер")]
+    [ContextMenu(" Скрыть баннер")]
     public void TestHideBanner()
     {
         HideBanner();
     }
 
-    [ContextMenu("🎬 Показать Interstitial")]
+    [ContextMenu(" Показать Interstitial")]
     public void TestShowInterstitial()
     {
         ShowInterstitial();
     }
 
-    [ContextMenu("⭐ Показать Rewarded")]
+    [ContextMenu(" Показать Rewarded")]
     public void TestShowRewarded()
     {
         ShowRewardedVideo();
     }
 
-    [ContextMenu("📊 Статус")]
+    [ContextMenu(" Статус")]
     public void TestStatus()
     {
-        Debug.Log("===== 📊 СТАТУС ADS =====");
+        Debug.Log("=====  СТАТУС ADS =====");
         Debug.Log($"SDK Инициализирован: {Advertisement.isInitialized}");
         Debug.Log($"Game ID: {gameId}");
         Debug.Log($"Test Mode: {testMode}");
