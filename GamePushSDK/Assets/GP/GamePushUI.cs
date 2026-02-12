@@ -39,7 +39,7 @@ public class GamePushUI : MonoBehaviour
 
         if (GamePushManager.Instance == null)
         {
-            Debug.LogError("❌ GamePushManager не найден!");
+            Debug.LogError(" GamePushManager не найден!");
         }
     }
 
@@ -67,11 +67,11 @@ public class GamePushUI : MonoBehaviour
         if (mgr == null) return;
 
         mgr.OnPlayerAuthorized += UpdatePlayerInfo;
-        mgr.OnCloudSaveSuccess += (key) => ShowMessage($"✅ Сохранено: {key}");
-        mgr.OnCloudLoadSuccess += (key) => ShowMessage($"📂 Загружено: {key}");
-        mgr.OnCloudSaveFailed += (key) => ShowMessage($"❌ Ошибка сохранения: {key}");
-        mgr.OnCloudLoadFailed += (key) => ShowMessage($"❌ Ошибка загрузки: {key}");
-        mgr.OnRewardedAdComplete += () => ShowMessage("🎁 Награда выдана!");
+        mgr.OnCloudSaveSuccess += (key) => ShowMessage($" Сохранено: {key}");
+        mgr.OnCloudLoadSuccess += (key) => ShowMessage($" Загружено: {key}");
+        mgr.OnCloudSaveFailed += (key) => ShowMessage($" Ошибка сохранения: {key}");
+        mgr.OnCloudLoadFailed += (key) => ShowMessage($" Ошибка загрузки: {key}");
+        mgr.OnRewardedAdComplete += () => ShowMessage(" Награда выдана!");
     }
 
     private void UpdatePlayerInfo()
@@ -80,7 +80,7 @@ public class GamePushUI : MonoBehaviour
         if (playerNameText) playerNameText.text = $"Name: {GamePushManager.Instance.GetPlayerName()}";
         if (playerLevelText) playerLevelText.text = $"Level: {GamePushManager.Instance.GetPlayerLevel()}";
 
-        ShowMessage("✅ Авторизация успешна!");
+        ShowMessage(" Авторизация успешна!");
     }
 
     private void OnSaveButtonClick()
@@ -142,8 +142,8 @@ public class GamePushUI : MonoBehaviour
         if (cacheStatusText == null) return;
 
         bool isAuthorized = GamePushManager.Instance?.IsAuthorized ?? false;
-        string status = $"SDK: {(GamePushManager.Instance?.IsInitialized ?? false ? "✅" : "❌")}\n";
-        status += $"Auth: {(isAuthorized ? "✅" : "⏳")}\n";
+        string status = $"SDK: {(GamePushManager.Instance?.IsInitialized ?? false ? "" : "")}\n";
+        status += $"Auth: {(isAuthorized ? "" : "")}\n";
         status += $"Cache: Active";
 
         cacheStatusText.text = status;
