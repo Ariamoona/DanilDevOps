@@ -61,7 +61,7 @@ public class GamePushManager : MonoBehaviour
 
     public void InitializeSDK()
     {
-        Log("🚀 Инициализация GamePush SDK...");
+        Log(" Инициализация GamePush SDK...");
 
         GP_Settings.Init(gameId, secretKey);
 
@@ -74,7 +74,7 @@ public class GamePushManager : MonoBehaviour
     private void OnSDKReady()
     {
         IsInitialized = true;
-        Log("✅ GamePush SDK инициализирован!");
+        Log(" GamePush SDK инициализирован!");
         OnSDKInitialized?.Invoke();
 
         if (autoAuth)
@@ -85,7 +85,7 @@ public class GamePushManager : MonoBehaviour
 
     private void OnSDKError(string error)
     {
-        LogError($"❌ SDK Error: {error}");
+        LogError($" SDK Error: {error}");
     }
 
     #endregion
@@ -96,12 +96,12 @@ public class GamePushManager : MonoBehaviour
     {
         if (!IsInitialized)
         {
-            LogWarning("⏳ SDK не инициализирован, авторизация отложена");
+            LogWarning(" SDK не инициализирован, авторизация отложена");
             StartCoroutine(DelayedAuthorize());
             return;
         }
 
-        Log("🔑 Авторизация игрока...");
+        Log(" Авторизация игрока...");
 
         GP_Player.Authorize((success) =>
         {
@@ -109,7 +109,7 @@ public class GamePushManager : MonoBehaviour
             {
                 Player = GP_Player.Current;
                 IsAuthorized = true;
-                Log($"✅ Авторизация успешна! ID: {GetPlayerId()}");
+                Log($" Авторизация успешна! ID: {GetPlayerId()}");
                 Log($"   Имя: {GetPlayerName()}");
                 Log($"   Уровень: {GetPlayerLevel()}");
 
@@ -119,7 +119,7 @@ public class GamePushManager : MonoBehaviour
             }
             else
             {
-                LogError("❌ Ошибка авторизации");
+                LogError(" Ошибка авторизации");
                 ShowMessage("Не удалось авторизоваться. Проверьте подключение к интернету.");
             }
         });
@@ -137,7 +137,7 @@ public class GamePushManager : MonoBehaviour
         if (IsInitialized)
             AuthorizePlayer();
         else
-            LogError("❌ Таймаут инициализации SDK");
+            LogError(" Таймаут инициализации SDK");
     }
 
     public string GetPlayerId()
@@ -163,12 +163,12 @@ public class GamePushManager : MonoBehaviour
     {
         if (!IsAuthorized)
         {
-            LogWarning("⚠️ Игрок не авторизован, сохранение в локальный кэш");
+            LogWarning(" Игрок не авторизован, сохранение в локальный кэш");
             CacheOperation(key, value, callback);
             return;
         }
 
-        Log($"💾 Сохранение: {key} = {value}");
+        Log($" Сохранение: {key} = {value}");
 
         var data = new Dictionary<string, string> { { key, value } };
 
@@ -177,13 +177,13 @@ public class GamePushManager : MonoBehaviour
         {
             if (success)
             {
-                Log($"✅ Облачное сохранение успешно: {key}");
+                Log($" Облачное сохранение успешно: {key}");
                 OnCloudSaveSuccess?.Invoke(key);
                 callback?.Invoke(true, key);
             }
             else
             {
-                LogError($"❌ Ошибка сохранения: {key}");
+                LogError($" Ошибка сохранения: {key}");
                 CacheOperation(key, value, callback);
                 OnCloudSaveFailed?.Invoke(key);
                 callback?.Invoke(false, key);
@@ -195,25 +195,25 @@ public class GamePushManager : MonoBehaviour
     {
         if (!IsAuthorized)
         {
-            LogWarning("⚠️ Игрок не авторизован, загрузка из локального кэша");
+            LogWarning(" Игрок не авторизован, загрузка из локального кэша");
             LoadFromCache(key, callback);
             return;
         }
 
-        Log($"📂 Загрузка: {key}");
+        Log($" Загрузка: {key}");
 
         GP_Player.Fetch((success) =>
         {
             if (success)
             {
                 string value = GP_Player.GetString(key, "");
-                Log($"✅ Загрузка успешна: {key} = {value}");
+                Log($" Загрузка успешна: {key} = {value}");
                 OnCloudLoadSuccess?.Invoke(key);
                 callback?.Invoke(value);
             }
             else
             {
-                LogError($"❌ Ошибка загрузки: {key}");
+                LogError($" Ошибка загрузки: {key}");
                 LoadFromCache(key, callback);
                 OnCloudLoadFailed?.Invoke(key);
             }
@@ -236,7 +236,7 @@ public class GamePushManager : MonoBehaviour
 
         pendingOperations.Enqueue(operation);
         SaveToLocalCache(key, value);
-        Log($"📦 Операция закеширована: {key} (в очереди: {pendingOperations.Count})");
+        Log($" Операция закеширована: {key} (в очереди: {pendingOperations.Count})");
 
         if (retryCoroutine == null)
         {
@@ -252,12 +252,12 @@ public class GamePushManager : MonoBehaviour
 
             if (!IsAuthorized)
             {
-                Log("⏳ Ожидание авторизации...");
+                Log(" Ожидание авторизации...");
                 yield return new WaitForSeconds(RETRY_DELAY);
                 continue;
             }
 
-            Log($"🔄 Повторная попытка сохранения: {operation.key} (попытка {operation.retryCount + 1}/{MAX_RETRY_ATTEMPTS})");
+            Log($" Повторная попытка сохранения: {operation.key} (попытка {operation.retryCount + 1}/{MAX_RETRY_ATTEMPTS})");
 
             var data = new Dictionary<string, string> { { operation.key, operation.value } };
 
@@ -266,7 +266,7 @@ public class GamePushManager : MonoBehaviour
             {
                 if (success)
                 {
-                    Log($"✅ Успешно сохранено из кэша: {operation.key}");
+                    Log($" Успешно сохранено из кэша: {operation.key}");
                     operation.callback?.Invoke(true, operation.key);
                     OnCloudSaveSuccess?.Invoke(operation.key);
                     pendingOperations.Dequeue();
@@ -276,7 +276,7 @@ public class GamePushManager : MonoBehaviour
                     operation.retryCount++;
                     if (operation.retryCount >= MAX_RETRY_ATTEMPTS)
                     {
-                        LogError($"❌ Превышен лимит попыток: {operation.key}");
+                        LogError($" Превышен лимит попыток: {operation.key}");
                         operation.callback?.Invoke(false, operation.key);
                         pendingOperations.Dequeue();
                     }
@@ -303,12 +303,12 @@ public class GamePushManager : MonoBehaviour
         {
             string value = PlayerPrefs.GetString($"cached_{key}");
             string timestamp = PlayerPrefs.GetString($"cached_{key}_timestamp", "unknown");
-            Log($"📀 Загружено из локального кэша: {key} = {value} (от {timestamp})");
+            Log($" Загружено из локального кэша: {key} = {value} (от {timestamp})");
             callback?.Invoke(value);
         }
         else
         {
-            Log($"📀 Нет данных в кэше: {key}");
+            Log($" Нет данных в кэше: {key}");
             callback?.Invoke("");
         }
     }
@@ -318,7 +318,7 @@ public class GamePushManager : MonoBehaviour
         pendingOperations.Clear();
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
-        Log("🧹 Кэш очищен");
+        Log(" Кэш очищен");
     }
 
     #endregion
@@ -329,22 +329,22 @@ public class GamePushManager : MonoBehaviour
     {
         if (!IsAuthorized)
         {
-            LogWarning("⚠️ Игрок не авторизован, невозможно отправить рекорд");
+            LogWarning(" Игрок не авторизован, невозможно отправить рекорд");
             return;
         }
 
-        Log($"🏆 Отправка рекорда: {leaderboardId} = {score}");
+        Log($" Отправка рекорда: {leaderboardId} = {score}");
 
         GP_Leaderboard.PushScore(leaderboardId, score, (success) =>
         {
             if (success)
             {
-                Log($"✅ Рекорд отправлен: {score}");
+                Log($" Рекорд отправлен: {score}");
                 OnLeaderboardScoreSent?.Invoke();
             }
             else
             {
-                LogError($"❌ Ошибка отправки рекорда");
+                LogError($" Ошибка отправки рекорда");
             }
         });
     }
@@ -360,26 +360,26 @@ public class GamePushManager : MonoBehaviour
 
     public void ShowRewardedAd(string placementName = "rewarded", Action onComplete = null)
     {
-        Log($"📢 Показ rewarded рекламы: {placementName}");
+        Log($" Показ rewarded рекламы: {placementName}");
 
         GP_Ads.ShowRewarded(placementName, (result) =>
         {
             if (result.isSuccess)
             {
-                Log("✅ Реклама просмотрена полностью");
+                Log(" Реклама просмотрена полностью");
                 OnRewardedAdComplete?.Invoke();
                 onComplete?.Invoke();
             }
             else
             {
-                LogWarning($"⚠️ Реклама не завершена: {result.error}");
+                LogWarning($" Реклама не завершена: {result.error}");
             }
         });
     }
 
     public void ShowInterstitialAd(string placementName = "interstitial")
     {
-        Log($"📢 Показ interstitial рекламы: {placementName}");
+        Log($" Показ interstitial рекламы: {placementName}");
         GP_Ads.ShowInterstitial(placementName);
     }
 
