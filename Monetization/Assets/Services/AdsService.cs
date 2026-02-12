@@ -54,7 +54,7 @@ public class AdsService : MonoBehaviour
         }
     }
 
-    // ============= БАННЕР =============
+    
     public void ShowBanner()
     {
         if (!Advertisement.isInitialized)
@@ -63,7 +63,7 @@ public class AdsService : MonoBehaviour
             return;
         }
 
-        // Проверяем готовность баннера
+       
         if (Advertisement.Banner != null)
         {
             Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
@@ -85,7 +85,7 @@ public class AdsService : MonoBehaviour
         }
     }
 
-    // ============= INTERSTITIAL =============
+    
     public void ShowInterstitial()
     {
         if (!Advertisement.isInitialized)
@@ -123,7 +123,7 @@ public class AdsService : MonoBehaviour
         }
     }
 
-    // ============= REWARDED =============
+   
     public void ShowRewardedVideo()
     {
         if (!Advertisement.isInitialized)
@@ -163,7 +163,7 @@ public class AdsService : MonoBehaviour
         }
     }
 
-    // ============= ТЕСТОВЫЕ МЕТОДЫ =============
+   
     [ContextMenu(" Показать баннер")]
     public void TestShowBanner()
     {
@@ -203,7 +203,7 @@ public class AdsService : MonoBehaviour
 
     private void Update()
     {
-        // Показываем статус каждые 10 секунд для отладки
+       
         if (isInitialized && Time.frameCount % 600 == 0)
         {
             TestStatus();
