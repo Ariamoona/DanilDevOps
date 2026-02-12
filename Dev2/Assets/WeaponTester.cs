@@ -79,7 +79,7 @@ public class WeaponTester : MonoBehaviour
     
     private void OnConfigLoaded()
     {
-        statusText.text = "✅ Config loaded successfully!";
+        statusText.text = " Config loaded successfully!";
         statusText.color = Color.green;
         
         if (weaponDropdown != null)
@@ -90,13 +90,13 @@ public class WeaponTester : MonoBehaviour
     
     private void OnConfigError(string error)
     {
-        statusText.text = $"❌ Error: {error}";
+        statusText.text = $" Error: {error}";
         statusText.color = Color.red;
     }
     
     private void OnWeaponApplied(Weapon weapon)
     {
-        statusText.text = $"🔧 Applied: {weapon.id}";
+        statusText.text = $" Applied: {weapon.id}";
         statusText.color = Color.yellow;
     }
     
