@@ -59,20 +59,20 @@ public class SafeAreaFitter : MonoBehaviour
         lastSafeArea = Screen.safeArea;
         lastOrientation = Screen.orientation;
 
-        Debug.Log($"[SafeAreaFitter] ✅ Applied: {anchorMin:F3} - {anchorMax:F3}");
+        Debug.Log($"[SafeAreaFitter]  Applied: {anchorMin:F3} - {anchorMax:F3}");
     }
 
     private void LogSafeAreaInfo(Rect safeArea)
     {
-        Debug.Log("=== 📱 SAFE AREA INFO ===");
-        Debug.Log($"📏 Screen: {Screen.width} x {Screen.height}");
-        Debug.Log($"🧭 Orientation: {Screen.orientation}");
-        Debug.Log($"🟢 SafeArea: X={safeArea.x:F0}, Y={safeArea.y:F0}, W={safeArea.width:F0}, H={safeArea.height:F0}");
-        Debug.Log($"📱 Device: {SystemInfo.deviceModel}");
+        Debug.Log("===  SAFE AREA INFO ===");
+        Debug.Log($" Screen: {Screen.width} x {Screen.height}");
+        Debug.Log($" Orientation: {Screen.orientation}");
+        Debug.Log($" SafeArea: X={safeArea.x:F0}, Y={safeArea.y:F0}, W={safeArea.width:F0}, H={safeArea.height:F0}");
+        Debug.Log($" Device: {SystemInfo.deviceModel}");
         Debug.Log("==========================");
     }
 
-    [ContextMenu("📱 Simulate iPhone 14 Pro Max")]
+    [ContextMenu(" Simulate iPhone 14 Pro Max")]
     public void SimulateIPhone14ProMax()
     {
         simulatedSafeArea = new Rect(0, 132, 1290, 2634);
@@ -80,7 +80,7 @@ public class SafeAreaFitter : MonoBehaviour
         ApplySafeArea();
     }
 
-    [ContextMenu("📱 Simulate iPhone SE")]
+    [ContextMenu(" Simulate iPhone SE")]
     public void SimulateIPhoneSE()
     {
         simulatedSafeArea = new Rect(0, 0, 750, 1334);
@@ -88,7 +88,7 @@ public class SafeAreaFitter : MonoBehaviour
         ApplySafeArea();
     }
 
-    [ContextMenu("📱 Simulate Pixel 6 Pro")]
+    [ContextMenu(" Simulate Pixel 6 Pro")]
     public void SimulatePixel6Pro()
     {
         simulatedSafeArea = new Rect(0, 110, 1440, 2890);
@@ -96,14 +96,14 @@ public class SafeAreaFitter : MonoBehaviour
         ApplySafeArea();
     }
 
-    [ContextMenu("🔄 Toggle Simulate Mode")]
+    [ContextMenu(" Toggle Simulate Mode")]
     public void ToggleSimulateMode()
     {
         simulateSafeArea = !simulateSafeArea;
         ApplySafeArea();
     }
 
-    [ContextMenu("🔄 Reset to Real SafeArea")]
+    [ContextMenu(" Reset to Real SafeArea")]
     public void ResetToRealSafeArea()
     {
         simulateSafeArea = false;
