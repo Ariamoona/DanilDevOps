@@ -32,7 +32,7 @@ public class SafeAreaMonitor : MonoBehaviour
     {
         if (Screen.safeArea != lastSafeArea)
         {
-            Debug.Log($"🔄 Safe Area CHANGED!");
+            Debug.Log($" Safe Area CHANGED!");
             Debug.Log($"   From: {lastSafeArea}");
             Debug.Log($"   To: {Screen.safeArea}");
             lastSafeArea = Screen.safeArea;
@@ -40,14 +40,14 @@ public class SafeAreaMonitor : MonoBehaviour
 
         if (Screen.orientation != lastOrientation)
         {
-            Debug.Log($"🔄 Orientation CHANGED: {lastOrientation} → {Screen.orientation}");
+            Debug.Log($" Orientation CHANGED: {lastOrientation} → {Screen.orientation}");
             lastOrientation = Screen.orientation;
         }
     }
 
     private void LogInitialInfo()
     {
-        Debug.Log("=== 📱 DEVICE INFO ===");
+        Debug.Log("===  DEVICE INFO ===");
         Debug.Log($"Device Model: {SystemInfo.deviceModel}");
         Debug.Log($"Device Type: {SystemInfo.deviceType}");
         Debug.Log($"Screen: {Screen.width} x {Screen.height}");
@@ -58,7 +58,7 @@ public class SafeAreaMonitor : MonoBehaviour
         Debug.Log("======================");
     }
 
-    [ContextMenu("📋 Log Current Status")]
+    [ContextMenu(" Log Current Status")]
     public void LogCurrentStatus()
     {
         LogInitialInfo();
