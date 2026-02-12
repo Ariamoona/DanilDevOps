@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameAnalyticsSDK", "GameAnalyticsSDK.csproj", "{42A1249B-AFD6-F8C0-0349-9E08FA16C263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{34D82638-05A9-03F9-B0D6-063EDCEDD606}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameAnalyticsSDK.Editor", "GameAnalyticsSDK.Editor.csproj", "{DC87D504-CDAA-B00E-3B21-BA94AB98C9B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42A1249B-AFD6-F8C0-0349-9E08FA16C263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A1249B-AFD6-F8C0-0349-9E08FA16C263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A1249B-AFD6-F8C0-0349-9E08FA16C263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A1249B-AFD6-F8C0-0349-9E08FA16C263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D82638-05A9-03F9-B0D6-063EDCEDD606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D82638-05A9-03F9-B0D6-063EDCEDD606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D82638-05A9-03F9-B0D6-063EDCEDD606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D82638-05A9-03F9-B0D6-063EDCEDD606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC87D504-CDAA-B00E-3B21-BA94AB98C9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC87D504-CDAA-B00E-3B21-BA94AB98C9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC87D504-CDAA-B00E-3B21-BA94AB98C9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC87D504-CDAA-B00E-3B21-BA94AB98C9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

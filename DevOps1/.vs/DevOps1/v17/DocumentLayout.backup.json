@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\SpinSpinRemover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\WebGLTemplates\\SpinSpinRemover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\Assets\\SpinSpin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\WebGLTemplates\\Assets\\SpinSpin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\better-unity-webgl-template-master\\Assets\\SpinSpin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\WebGLTemplates\\better-unity-webgl-template-master\\Assets\\SpinSpin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\BuildAutomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\BuildAutomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D35D8B9-0B59-653A-BBCF-4732FE8891AF}|Assembly-CSharp.csproj|C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\assets\\buildconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D35D8B9-0B59-653A-BBCF-4732FE8891AF}|Assembly-CSharp.csproj|solutionrelative:assets\\buildconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SpinSpinRemover.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\SpinSpinRemover.cs",
+              "RelativeDocumentMoniker": "Assets\\WebGLTemplates\\SpinSpinRemover.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\SpinSpinRemover.cs",
+              "RelativeToolTip": "Assets\\WebGLTemplates\\SpinSpinRemover.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAmwFYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T00:12:34.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpinSpin.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\Assets\\SpinSpin.cs",
+              "RelativeDocumentMoniker": "Assets\\WebGLTemplates\\Assets\\SpinSpin.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\Assets\\SpinSpin.cs",
+              "RelativeToolTip": "Assets\\WebGLTemplates\\Assets\\SpinSpin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T00:11:32.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SpinSpin.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\better-unity-webgl-template-master\\Assets\\SpinSpin.cs",
+              "RelativeDocumentMoniker": "Assets\\WebGLTemplates\\better-unity-webgl-template-master\\Assets\\SpinSpin.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\WebGLTemplates\\better-unity-webgl-template-master\\Assets\\SpinSpin.cs",
+              "RelativeToolTip": "Assets\\WebGLTemplates\\better-unity-webgl-template-master\\Assets\\SpinSpin.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T00:07:18.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BuildConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\BuildConfiguration.cs",
+              "RelativeDocumentMoniker": "Assets\\BuildConfiguration.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\BuildConfiguration.cs",
+              "RelativeToolTip": "Assets\\BuildConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T23:59:30.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BuildAutomation.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\BuildAutomation.cs",
+              "RelativeDocumentMoniker": "Assets\\BuildAutomation.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0438\u043D\u0430\\DevOps1\\Assets\\BuildAutomation.cs",
+              "RelativeToolTip": "Assets\\BuildAutomation.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T23:57:35.242Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
